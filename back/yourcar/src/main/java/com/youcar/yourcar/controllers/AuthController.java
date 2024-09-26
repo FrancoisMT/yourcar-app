@@ -1,9 +1,12 @@
 package com.youcar.yourcar.controllers;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,12 +33,16 @@ public class AuthController {
     private AgentRepository agentRepository;
 	
     @PostMapping("/login")
-    public ResponseEntity<AuthResponse> userLogin(@RequestParam String email) {
+    public ResponseEntity<AuthResponse> userLogin(@RequestBody Map<String, String> requestBody) {
+        String email = requestBody.get("email");
+        System.out.println("Email reçu : " + email);
         return authenticateUser(email);
     }
 
     @PostMapping("/admin/login")
-    public ResponseEntity<AuthResponse> adminLogin(@RequestParam String email) {
+    public ResponseEntity<AuthResponse> adminLogin(@RequestBody Map<String, String> requestBody) {
+        String email = requestBody.get("email");
+        System.out.println("Email reçu : " + email);
         return authenticateAdmin(email);
     }
 

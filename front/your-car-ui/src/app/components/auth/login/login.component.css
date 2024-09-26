@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    height: 250vh;
+    padding: 40px;
+    padding-top: 80px; 
+}
+
+.title {
+    margin-bottom: 20px;
+}
+
+.mat-form-field {
+    width: 100%; 
+    max-width: 600px;
+}
+
+.radio-group {
+    margin-top: 20px;
+}
+
+.action-buttons {
+    margin-top: 20px;
+}

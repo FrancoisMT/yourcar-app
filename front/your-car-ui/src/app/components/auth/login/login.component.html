@@ -1,0 +1,20 @@
+<div class="container">
+    <h2 class="title">CONNEXION</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" required>
+        </mat-form-field>
+
+        <div class="radio-group">
+            <mat-radio-group formControlName="role" required>
+                <mat-radio-button value="admin">ADMIN</mat-radio-button>
+                <mat-radio-button value="user">UTILISATEUR</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="action-buttons">
+            <button mat-raised-button color="primary" type="submit">VALIDER</button>
+        </div>
+    </form>
+</div>
