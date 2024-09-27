@@ -54,7 +54,7 @@ public class AuthController {
         }
 
         String token = jwtService.generateToken(user.mail, "USER");        
-        AuthResponse response = new AuthResponse(token, "USER");
+        AuthResponse response = new AuthResponse(token, "USER", user.id, user.name);
         return ResponseEntity.ok(response);
     }
 
@@ -66,7 +66,7 @@ public class AuthController {
         }
 
         String token = jwtService.generateToken(agent.mail, "ADMIN");        
-        AuthResponse response = new AuthResponse(token, "ADMIN");
+        AuthResponse response = new AuthResponse(token, "ADMIN", agent.id, agent.name);
         return ResponseEntity.ok(response); 
     }
 

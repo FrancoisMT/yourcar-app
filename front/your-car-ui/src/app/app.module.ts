@@ -17,12 +17,16 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
+import { ChatUserComponent } from './components/chat/chat-user/chat-user.component';
+import { ChatAdminComponent } from './components/chat/chat-admin/chat-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    ChatUserComponent,
+    ChatAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -30,6 +30,8 @@ export class LoginComponent implements OnInit {
           console.log('Admin logged in:', response); 
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role);
+          localStorage.setItem('id', response.id);   
+          localStorage.setItem('name', response.name); 
           this.router.navigate(['/home']);
 
         }, error => {
@@ -40,6 +42,8 @@ export class LoginComponent implements OnInit {
           console.log('User logged in:', response); 
           localStorage.setItem('token', response.token);
           localStorage.setItem('role', response.role);
+          localStorage.setItem('id', response.id); 
+          localStorage.setItem('name', response.name);
           this.router.navigate(['/home']);
 
         }, error => {

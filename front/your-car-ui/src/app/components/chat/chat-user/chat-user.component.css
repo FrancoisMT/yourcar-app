@@ -1,0 +1,75 @@
+/* Container principal du chat */
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Zone d'affichage des messages */
+.chat-messages {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-height: 400px;
+}
+
+/* Chaque message */
+.message {
+    margin-bottom: 12px;
+    padding: 8px;
+    background-color: #eef;
+    border-radius: 6px;
+}
+
+.message-author {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.message-content {
+    display: inline-block;
+}
+
+.message-date {
+    float: right;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+/* Zone de saisie du message */
+.chat-input {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.chat-input input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}

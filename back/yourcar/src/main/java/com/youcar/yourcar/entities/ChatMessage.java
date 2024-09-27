@@ -26,7 +26,7 @@ public class ChatMessage {
 	  public User user;
 
 	  @ManyToOne
-	  @JoinColumn(name = "agent_id", nullable = false) 
+	  @JoinColumn(name = "agent_id", nullable = true) 
 	  public Agent agent;
 	
 }
