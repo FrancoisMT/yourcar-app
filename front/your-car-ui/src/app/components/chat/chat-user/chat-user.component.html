@@ -1,22 +1,16 @@
 <div class="chat-container">
-    <!-- Zone des messages -->
-    <div class="chat-messages">
-      <div *ngFor="let message of messages" class="message">
-        <span class="message-author">{{ userName }}:</span>
-        <span class="message-content">{{ message.content }}</span>
-        <span class="message-date">{{ message.date | date: 'shortTime' }}</span>
-      </div>
-    </div>
-  
-    <!-- Zone d'envoi du message -->
-    <div class="chat-input">
-      <input
-        type="text"
-        [(ngModel)]="newMessage"
-        placeholder="Tapez votre message ici..."
-        (keyup.enter)="sendMessage()"
-      />
-      <button (click)="sendMessage()" class="send-button">Envoyer</button>
+
+  <div class="chat-messages">
+    <div *ngFor="let message of messages" class="message">
+      <span class="message-author">{{ message.autor }}:</span>
+      <span class="message-content">{{ message.content }}</span>
+      <span class="message-date">{{ message.date | date: 'shortTime' }}</span>
     </div>
   </div>
-  
+
+  <div class="chat-input">
+    <input type="text" [(ngModel)]="newMessage" placeholder="Tapez votre message ici..."
+      (keyup.enter)="sendMessage()" />
+    <button (click)="sendMessage()" class="send-button">Envoyer</button>
+  </div>
+</div>

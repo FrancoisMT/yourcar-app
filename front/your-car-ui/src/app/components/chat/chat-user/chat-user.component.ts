@@ -11,24 +11,36 @@ export class ChatUserComponent implements OnInit {
   messages: ChatMessage[] = [];
   newMessage: string = '';
   userId!: number;
-  userName:string = "";
+  userName: string = "";
 
   constructor(private chatService: ChatService) {
     if (typeof window !== 'undefined' && window.localStorage) {
       this.userId = Number(localStorage.getItem('id'));
-      this.userName = localStorage.getItem('name') ?? ''; ;
-    } 
+      this.userName = localStorage.getItem('name') ?? '';;
+    }
   }
 
   ngOnInit(): void {
-     // Récupérer les anciens messages à partir de l'API
-     this.chatService.getMessagesByUserId(this.userId).subscribe((messages: ChatMessage[]) => {
-      this.messages = messages;
+    this.chatService.getMessagesByUserId(this.userId).subscribe((messages) => {
+
+      let chatmessage: ChatMessage;
+
+      messages.forEach((elt) => {
+        chatmessage = elt
+        if (elt.agent) {
+          chatmessage.autor = "ADMIN";
+        } else {
+          chatmessage.autor = this.userName;
+        }
+
+        this.messages.push(chatmessage);
+      })
+
       console.log('Ancien messages:', this.messages);
     });
 
-    // S'abonner aux nouveaux messages reçus via WebSocket
     this.chatService.messages.subscribe((message: ChatMessage) => {
+      message.autor = message.agent ? "ADMIN" : this.userName;
       this.messages.push(message);
       console.log('Nouveau message:', message);
     });
@@ -36,20 +48,20 @@ export class ChatUserComponent implements OnInit {
 
   sendMessage(): void {
     if (this.newMessage.trim()) {
-      const message: ChatMessage = {
+      const message = {
         content: this.newMessage,
         date: new Date(),
-        user: { id: this.userId }, 
-        agent: null, 
+        user: { id: this.userId },
+        agent: null,
       };
       console.log(message);
-      this.chatService.sendMessage(message); 
-      this.newMessage = ''; 
+      this.chatService.sendMessage(message);
+      this.newMessage = '';
     }
   }
-  
-  
 
-  
+
+
+
 
 }

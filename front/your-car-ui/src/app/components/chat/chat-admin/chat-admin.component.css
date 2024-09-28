@@ -1,0 +1,95 @@
+.admin-chat {
+    display: flex; /* Utiliser Flexbox pour layout */
+    height: 100vh; /* Remplir toute la hauteur de la fenêtre */
+    width: 90%; 
+    max-width: 900px; 
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.user-list {
+    width: 30%; 
+    padding: 10px;
+    border-right: 1px solid #ddd; 
+    overflow-y: auto; 
+}
+
+.user-item {
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.user-item.selected {
+    border: 2px solid #007bff; 
+    background-color: rgba(0, 123, 255, 0.1); 
+}
+.user-item:hover {
+    background-color: rgba(0, 123, 255, 0.1); 
+}
+
+.chat-box {
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-messages {
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding: 10px;
+    background-color: #fff;
+}
+
+.message {
+    margin-bottom: 12px;
+    padding: 8px;
+    background-color: #eef;
+    border-radius: 6px;
+}
+
+.message-author {
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+.message-content {
+    display: inline-block;
+}
+
+.message-date {
+    float: right;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.chat-input {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 10px; /* Pour le padding intérieur */
+}
+
+.chat-input input {
+    flex-grow: 1; /* Prend tout l'espace disponible */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+.send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}

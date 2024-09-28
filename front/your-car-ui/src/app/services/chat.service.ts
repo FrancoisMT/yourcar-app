@@ -12,15 +12,21 @@ export class ChatService {
   private stompClient!: Client; // Utiliser Client ici
   private chatUrl = 'http://localhost:8080/chat'; // URL du WebSocket
   private apiUrl = 'http://localhost:8080/api/chat'; // URL pour retrouver les anciens messages
-  public messages: Subject<ChatMessage> = new Subject<ChatMessage>(); // Pour suivre les messages reçus
+  private userUrl = 'http://localhost:8080/api/chat/users'
+  public messages: Subject<ChatMessage> = new Subject<ChatMessage>(); // Pour suivre les messages 
 
   constructor(private http: HttpClient) {
     this.connect(); // Établir la connexion au démarrage du service
   }
 
-   // Méthode pour récupérer les anciens messages d'un utilisateur
-   getMessagesByUserId(userId: number): Observable<ChatMessage[]> {
+  // Récupérer les anciens messages d'un utilisateur
+  getMessagesByUserId(userId: number): Observable<ChatMessage[]> {
     return this.http.get<ChatMessage[]>(`${this.apiUrl}/messages/${userId}`);
+  }
+
+  // Récupérer tous les utilisateurs
+  public getUsers(): Observable<any> {
+    return this.http.get<any>(this.userUrl);
   }
 
   // Connexion au WebSocket via SockJS et StompJS
@@ -50,7 +56,7 @@ export class ChatService {
   }
 
   // Méthode pour envoyer un message
-  public sendMessage(message: ChatMessage): void {
+  public sendMessage(message:any): void {
     if (this.stompClient.connected) {
       this.stompClient.publish({
         destination: '/app/sendMessage', // La destination dans le contrôleur Spring Boot

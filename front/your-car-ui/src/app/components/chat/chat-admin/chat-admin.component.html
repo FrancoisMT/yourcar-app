@@ -1,1 +1,25 @@
-<p>chat-admin works!</p>
+<div class="admin-chat">
+    <div class="user-list">
+        <h3>Liste des Utilisateurs</h3>
+        <div *ngFor="let user of users" (click)="selectUser(user.id)" 
+             [ngClass]="{'user-item': true, 'selected': selectedUserId === user.id}">
+            <p>{{ user.name }}</p>
+        </div>
+    </div>
+    
+    <div class="chat-box">
+        <div class="chat-messages">
+            <div *ngFor="let message of messages" class="message">
+                <span class="message-author">{{ message.autor }}:</span>
+                <span class="message-content">{{ message.content }}</span>
+                <span class="message-date">{{ message.date | date: 'shortTime' }}</span>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" [(ngModel)]="newMessage" placeholder="Tapez votre message ici..."
+                (keyup.enter)="sendMessage()" />
+            <button (click)="sendMessage()" class="send-button">Envoyer</button>
+        </div>
+    </div>
+</div>
