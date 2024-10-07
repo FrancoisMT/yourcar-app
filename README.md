@@ -11,8 +11,8 @@ To run this project, you must configure the following environment variables:
 - `DATASOURCE_PASSWORD`: The password for the database.  (ex : my-db-pwd)
 
 ### Database script 
-- Script for database creation : back/yourcar/src/main/resources/scripts/database/schema.sql
-- (Hibernate is used for automatic table creation)
+- Script for database structure : back/yourcar/src/main/resources/scripts/database/schema.sql
+- Hibernate is used for automatic table creation, with data insertion in script :back/yourcar/src/main/resources/scripts/database/data.sql
 
 ## Installing the Application
 1. Make sure you've installed all needed dependencies: Java, Node.js, Maven.
