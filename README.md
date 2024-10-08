@@ -24,10 +24,10 @@ To run this project, you must configure the following environment variables:
 1. In the back-end project folder, run `mvn spring-boot:run` to initiate the back-end server.
 2. In the front-end project folder, use `ng serve` to start the front-end interface.
 
-## Main technologies used in the development of the mdd App :
+## Main technologies for the POC
 - Angular CLI v17
 - Java 21
 - SpringBoot 3.3.4
 - JUnit
 - Mockito
-- Jest
+- Karma
